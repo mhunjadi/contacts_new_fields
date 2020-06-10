@@ -1,0 +1,25 @@
+<odoo>
+  <!--Inherit the corresponding form view--> 
+  <record id="action_contacts_inherited_view_form" model="ir.ui.view">
+    <field name="name">Contacts inherited form</field>
+    <field name="model">res.partner</field> 
+    <field name="inherit_id" ref="base.view_partner_form"/> 
+    <field name="arch" type="xml"> 
+      <field name="vat" position="after"> 
+          <field name="new_field2" attrs="{'required': [('new_field1','=', True)], 'invisible': [('new_field1', '!=', True)]}"/>
+          <field name="new_field1"/>
+      </field> 
+    </field> 
+  </record>
+  <record id="action_contacts_inherited_view_tree" model="ir.ui.view">
+    <field name="name">Contacts inherited tree</field>
+    <field name="model">res.partner</field> 
+    <field name="inherit_id" ref="base.view_partner_tree"/> 
+    <field name="arch" type="xml"> 
+      <field name="email" position="after">          
+          <field name="new_field2"/>
+          <field name="vat"/>
+      </field> 
+    </field> 
+  </record>
+</odoo>
